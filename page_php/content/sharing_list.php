@@ -14,7 +14,7 @@ include 'config/koneksi.php';
     ?>
 
     <!-- Looping Item Sharing -->
-    <a href="detail_sharing.php?id=<?= $row['id']; ?>" 
+    <a href="details/detailsharing.php?id=<?= $row['id']; ?>" 
        class="block bg-white border border-black/40 rounded-xl shadow-sm overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition">
       
       <div class="h-48 bg-gray-100">

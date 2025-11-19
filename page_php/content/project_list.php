@@ -13,7 +13,7 @@ include 'config/koneksi.php';
 
                 <!-- Looping Item Project -->
                 <!-- Link disesuaikan agar dinamis -->
-                <a href="../details/detail_project.php?id=<?= $row['id']; ?>"
+                <a href="details/detailproject.php?id=<?= $row['id']; ?>"
                     class="block bg-white border border-black/40 rounded-xl shadow-sm overflow-hidden transform hover:-translate-y-1 hover:shadow-lg transition">
 
                     <div class="h-48 bg-gray-100">

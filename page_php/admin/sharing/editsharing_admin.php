@@ -19,7 +19,7 @@ if (isset($_GET['hapus'])) {
 
   // Hapus data dari DB
   $delete = mysqli_query($koneksi, "DELETE FROM sharing WHERE id='$id'");
-  
+
   if ($delete) {
     // Hapus file fisik (Path sesuai struktur project admin)
     if (file_exists("../Assets/$gambar")) {
@@ -42,7 +42,9 @@ if (isset($_GET['hapus'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Poppins', sans-serif; }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
   </style>
 </head>
 
@@ -93,34 +95,39 @@ if (isset($_GET['hapus'])) {
               while ($row = mysqli_fetch_array($query)) {
             ?>
                 <tr style="background-color: #D9D9D9;">
-                  <!-- Judul -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                    <?= $row['judul_content']; ?>
-                  </td>
 
-                  <!-- Gambar -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                    <!-- Link ke gambar jika ingin di-preview (opsional) -->
-                    <span class="text-blue-600">
-                      <?= $row['gambar_content']; ?>
-                    </span>
-                  </td>
-
-                  <!-- Deskripsi -->
-                  <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-                    <!-- Potong teks jika terlalu panjang -->
-                    <?= substr($row['deskripsi_content'], 0, 150) . '...'; ?>
-                  </td>
-
-                  <!-- Action -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                    <div class="flex flex-col items-center leading-tight">
-                      <!-- PERBAIKAN: Link Edit dengan ID -->
-                      <a href="sharing_admin.php?id=<?= $row['id']; ?>" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                      
-                      <a href="editsharing_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus konten ini?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[200px]">
+                    <div class="font-semibold">
+                      <?= $row['judul_content']; ?>
                     </div>
                   </td>
+
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[150px]">
+                    <div class="text-blue-600 text-xs break-all">
+                      <?= $row['gambar_content']; ?>
+                    </div>
+                  </td>
+
+                  <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4 w-[350px]">
+                    <div class="line-clamp-3 hover:line-clamp-none cursor-pointer" title="Arahkan mouse untuk baca selengkapnya">
+                      <?= $row['deskripsi_content']; ?>
+                    </div>
+                  </td>
+
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[100px]">
+                    <div class="flex flex-col items-center leading-tight">
+                      <a href="sharing_admin.php?id=<?= $row['id']; ?>" class="text-blue-600 hover:underline text-sm font-medium">
+                        Edit
+                      </a>
+
+                      <a href="editsharing_admin.php?hapus=<?= $row['id']; ?>"
+                        onclick="return confirm('Yakin ingin menghapus konten ini?')"
+                        class="text-red-600 hover:underline text-sm mt-1">
+                        Hapus
+                      </a>
+                    </div>
+                  </td>
+
                 </tr>
 
             <?php
@@ -138,4 +145,5 @@ if (isset($_GET['hapus'])) {
   </div>
 
 </body>
+
 </html>

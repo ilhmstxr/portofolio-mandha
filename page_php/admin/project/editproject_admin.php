@@ -101,50 +101,47 @@ if (isset($_GET['hapus'])) {
             if (mysqli_num_rows($query) > 0) {
               while ($row = mysqli_fetch_array($query)) {
             ?>
-
                 <tr style="background-color: #D9D9D9;">
 
-                  <!-- Judul -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                    <?= $row['judul_project']; ?>
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[150px]">
+                    <div class="font-semibold">
+                      <?= $row['judul_project']; ?>
+                    </div>
                   </td>
 
-                  <!-- Durasi -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[100px]">
                     <?= $row['durasi_project']; ?>
                   </td>
 
-                  <!-- Tanggal -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[120px]">
                     <?= $row['tanggal_project']; ?>
                   </td>
 
-                  <!-- Pengerjaan -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[100px]">
                     <?= $row['tipe_pengerjaan_project']; ?>
                   </td>
 
-                  <!-- Link -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top break-words">
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top max-w-[150px]">
                     <a href="<?= $row['link_project']; ?>"
-                      class="text-blue-600 underline"
-                      target="_blank">
-                      <?= $row['link_project']; ?>
+                      class="text-blue-600 underline block truncate hover:whitespace-normal hover:break-all"
+                      target="_blank"
+                      title="<?= $row['link_project']; ?>"> <?= $row['link_project']; ?>
                     </a>
                   </td>
 
-                  <!-- Gambar -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                    <?= $row['gambar_project']; ?>
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[100px]">
+                    <div class="break-words text-xs">
+                      <?= $row['gambar_project']; ?>
+                    </div>
                   </td>
 
-                  <!-- Deskripsi -->
-                  <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-                    <?= $row['deskripsi_project']; ?>
+                  <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4 w-[300px]">
+                    <div class="line-clamp-3 hover:line-clamp-none cursor-pointer">
+                      <?= $row['deskripsi_project']; ?>
+                    </div>
                   </td>
 
-                  <!-- Action -->
-                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top w-[100px]">
                     <div class="flex flex-col items-center leading-tight">
                       <a href="project_admin.php?id=<?= $row['id']; ?>" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
                       <a href="editproject_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
