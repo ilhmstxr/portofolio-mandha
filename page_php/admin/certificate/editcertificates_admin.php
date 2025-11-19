@@ -1,3 +1,32 @@
+<?php
+session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
+  header("location:login_admin.php");
+  exit();
+}
+
+include '../../config/koneksi.php';
+
+// Proses Hapus
+if (isset($_GET['hapus'])) {
+  $id = $_GET['hapus'];
+
+  // Ambil nama gambar
+  $q = mysqli_query($koneksi, "SELECT gambar_certificate FROM certificate WHERE id='$id'");
+  $data = mysqli_fetch_array($q);
+  $gambar = $data['gambar_certificate'];
+
+  $delete = mysqli_query($koneksi, "DELETE FROM certificate WHERE id='$id'");
+  if ($delete) {
+    if (file_exists("../Assets/$gambar")) {
+      unlink("../Assets/$gambar");
+    }
+    echo "<script>alert('Sertifikat Dihapus!'); window.location='editcertificates_admin.php';</script>";
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -34,7 +63,13 @@
 
         <!-- BACK DI POJOK KANAN ATAS TABEL -->
         <div class="flex justify-end mb-2">
-          <a href="certificates_admin.html" class="text-sm text-black">Back</a>
+          <a href="certificates_admin.php" class="text-sm text-black">Back</a>
+        </div>
+
+        <div class="flex justify-between mb-4">
+          <a href="certificates_admin.php" class="bg-[#4B4949] text-white px-4 py-2 rounded text-sm hover:bg-[#2c2c2c] transition">
+            + Tambah Sertifikat
+          </a>
         </div>
 
         <!-- TABLE -->
@@ -50,56 +85,44 @@
           </thead>
 
           <tbody>
-            <tr style="background-color: #D9D9D9;">
-              <!-- Judul -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top text-xs leading-4">
-                TODO: JUDUL_CERTIFICATE
-              </td>
+            <?php
+            $query = mysqli_query($koneksi, "SELECT * FROM certificate ORDER BY id DESC");
+            if (mysqli_num_rows($query) > 0) {
+              while ($row = mysqli_fetch_array($query)) {
+            ?>
 
-              <!-- Gambar -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO: GAMBAR_CERTIFICATE
-              </td>
+                <tr style="background-color: #D9D9D9;">
+                  <!-- Judul -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top text-xs leading-4">
+                    <?= $row['judul_certificate']; ?>
+                  </td>
 
-              <!-- Tanggal -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO: TANGGAL_CERTIFICATE
-              </td>
+                  <!-- Gambar -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['gambar_certificate']; ?>
+                  </td>
 
-              <!-- Action -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <div class="flex flex-col items-center leading-tight">
-                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
-                </div>
-              </td>
-            </tr>
+                  <!-- Tanggal -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['tanggal_certificate']; ?>
+                  </td>
+
+                  <!-- Action -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <div class="flex flex-col items-center leading-tight">
+                      <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                      <a href="editcertificates_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin hapus?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                    </div>
+                  </td>
+                </tr>
 
 
-            <tr style="background-color: #D9D9D9;">
-              <!-- Judul -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top text-xs leading-4">
-                Event Implementation:2JP
-              </td>
-
-              <!-- Gambar -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                Sertifikat1.jpg
-              </td>
-
-              <!-- Tanggal -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                10 - 02 - 24
-              </td>
-
-              <!-- Action -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <div class="flex flex-col items-center leading-tight">
-                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
-                </div>
-              </td>
-            </tr>
+            <?php
+              }
+            } else {
+              echo "<tr><td colspan='4' class='text-center py-5'>Belum ada sertifikat.</td></tr>";
+            }
+            ?>
           </tbody>
 
         </table>

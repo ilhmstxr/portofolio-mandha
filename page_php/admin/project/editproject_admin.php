@@ -1,3 +1,36 @@
+<?php
+session_start();
+// 1. Cek Login
+if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
+  header("location:login_admin.php");
+  exit();
+}
+
+include '../../config/koneksi.php';
+
+// 2. Proses Hapus Data
+if (isset($_GET['hapus'])) {
+  $id = $_GET['hapus'];
+
+  // Ambil nama gambar dulu untuk dihapus dari folder
+  $q = mysqli_query($koneksi, "SELECT gambar_project FROM project WHERE id='$id'");
+  $data = mysqli_fetch_array($q);
+  $gambar = $data['gambar_project'];
+
+  // Hapus data dari database
+  $delete = mysqli_query($koneksi, "DELETE FROM project WHERE id='$id'");
+
+  if ($delete) {
+    // Hapus file gambar fisik jika ada
+    if (file_exists("../Assets/$gambar")) {
+      unlink("../Assets/$gambar");
+    }
+    echo "<script>alert('Project Berhasil Dihapus!'); window.location='editproject_admin.php';</script>";
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -28,14 +61,21 @@
     <main class="flex-1 p-16 pl-24">
 
       <!-- JUDUL -->
-      <h1 class="text-4xl font-bold mt-4 mb-10">EDIT PROJECTS</h1>
+      <h1 class="text-4xl font-bold mt-4 mb-10">LIST PROJECTS</h1>
 
       <!-- AREA TABLE + BACK BUTTON -->
       <div class="w-[900px]">
 
         <!-- BACK BUTTON DI POJOK KANAN ATAS TABEL -->
         <div class="flex justify-end mb-2">
-          <a href="back()" class="text-sm text-black">Back</a>
+          <a href="project_admin.php" class="text-sm text-black">Back</a>
+        </div>
+
+        <div class="flex justify-between mb-4">
+          <!-- Tombol Tambah -->
+          <a href="project_admin.php" class="bg-[#4B4949] text-white px-4 py-2 rounded text-sm hover:bg-[#2c2c2c] transition">
+            + Tambah Project
+          </a>
         </div>
 
         <!-- TABLE -->
@@ -55,111 +95,70 @@
           </thead>
 
           <tbody>
-            <tr style="background-color: #D9D9D9;">
+            <?php
+            // Looping Data
+            $query = mysqli_query($koneksi, "SELECT * FROM project ORDER BY id DESC");
+            if (mysqli_num_rows($query) > 0) {
+              while ($row = mysqli_fetch_array($query)) {
+            ?>
 
-              <!-- Judul -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO:judul_project
-              </td>
+                <tr style="background-color: #D9D9D9;">
 
-              <!-- Durasi -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO:durasi_project
-              </td>
+                  <!-- Judul -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['judul_project']; ?>
+                  </td>
 
-              <!-- Tanggal -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO:tanggal_project
-              </td>
+                  <!-- Durasi -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['durasi_project']; ?>
+                  </td>
 
-              <!-- Pengerjaan -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO:tipe_pengerjaan_project
-              </td>
+                  <!-- Tanggal -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['tanggal_project']; ?>
+                  </td>
 
-              <!-- Link -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top break-words">
-                <a href="TODO:"
-                  class="text-blue-600 underline"
-                  target="_blank">
-                  TODO:link_project
-                </a>
-              </td>
+                  <!-- Pengerjaan -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['tipe_pengerjaan_project']; ?>
+                  </td>
 
-              <!-- Gambar -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO:gambar_project
-              </td>
+                  <!-- Link -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top break-words">
+                    <a href="<?= $row['link_project']; ?>"
+                      class="text-blue-600 underline"
+                      target="_blank">
+                      <?= $row['link_project']; ?>
+                    </a>
+                  </td>
 
-              <!-- Deskripsi -->
-              <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-                TODO:deskripsi_project
-              </td>
+                  <!-- Gambar -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['gambar_project']; ?>
+                  </td>
 
-              <!-- Action -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <div class="flex flex-col items-center leading-tight">
-                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
-                </div>
-              </td>
+                  <!-- Deskripsi -->
+                  <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
+                    <?= $row['deskripsi_project']; ?>
+                  </td>
 
-            </tr>
+                  <!-- Action -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <div class="flex flex-col items-center leading-tight">
+                      <a href="project_admin.php?id=<?= $row['id']; ?>" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                      <a href="editproject_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus data ini?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                    </div>
+                  </td>
 
+                </tr>
 
-            <tr style="background-color: #D9D9D9;">
-
-              <!-- Judul -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                Rumah Hemat Energi<br>(Rumah Batu Bata)
-              </td>
-
-              <!-- Durasi -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                3 Bulan
-              </td>
-
-              <!-- Tanggal -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                05 - 09 - 2023
-              </td>
-
-              <!-- Pengerjaan -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                Tim
-              </td>
-
-              <!-- Link -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top break-words">
-                <a href="https://youtu.be/1cfpvt-o0M0?si=xfZq1vzds61nTb08"
-                  class="text-blue-600 underline"
-                  target="_blank">
-                  https://youtu.be/1cfpvt-o0M0?si=xfZq1vzds61nTb08
-                </a>
-              </td>
-
-              <!-- Gambar -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                project1.jpg
-              </td>
-
-              <!-- Deskripsi -->
-              <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-                Rumah hemat energi dari batu bata adalah hunian yang memanfaatkan sifat batu bata dalam menjaga suhu
-                ruangan tetap stabil. Desainnya dibuat dengan ventilasi dan pencahayaan alami yang optimal,
-                sehingga mengurangi penggunaan listrik untuk penerangan dan pendingin ruangan. Rumah ini ramah
-                lingkungan dan efisien dalam jangka panjang.
-              </td>
-
-              <!-- Action -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <div class="flex flex-col items-center leading-tight">
-                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
-                </div>
-              </td>
-
-            </tr>
+            <?php
+              }
+            } else {
+              echo "<tr><td colspan='8' class='text-center py-5'>Belum ada data project.</td></tr>";
+            }
+            ?>
           </tbody>
 
         </table>

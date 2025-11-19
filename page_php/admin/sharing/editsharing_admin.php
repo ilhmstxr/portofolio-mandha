@@ -1,3 +1,31 @@
+<?php
+session_start();
+if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
+  header("location:login_admin.php");
+  exit();
+}
+
+include '../../config/koneksi.php';
+
+// Proses Hapus
+if (isset($_GET['hapus'])) {
+  $id = $_GET['hapus'];
+
+  // Ambil nama gambar
+  $q = mysqli_query($koneksi, "SELECT gambar_content FROM sharing WHERE id='$id'");
+  $data = mysqli_fetch_array($q);
+  $gambar = $data['gambar_content'];
+
+  $delete = mysqli_query($koneksi, "DELETE FROM sharing WHERE id='$id'");
+  if ($delete) {
+    if (file_exists("../Assets/$gambar")) {
+      unlink("../Assets/$gambar");
+    }
+    echo "<script>alert('Konten Sharing Dihapus!'); window.location='editsharing_admin.php';</script>";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -35,8 +63,15 @@
 
         <!-- BACK BUTTON DI POJOK KANAN ATAS TABEL -->
         <div class="flex justify-end mb-2">
-          <a href="sharing_admin.html" class="text-sm text-black">Back</a>
+          <a href="sharing_admin.php" class="text-sm text-black">Back</a>
         </div>
+
+        <div class="flex justify-between mb-4">
+          <a href="sharing_admin.php" class="bg-[#4B4949] text-white px-4 py-2 rounded text-sm hover:bg-[#2c2c2c] transition">
+            + Tambah Konten
+          </a>
+        </div>
+
 
         <!-- TABLE -->
         <table class="w-full text-sm border border-gray-500 border-collapse">
@@ -50,70 +85,47 @@
           </thead>
 
           <tbody>
-            <tr style="background-color: #D9D9D9;">
-              <!-- Judul -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                TODO: JUDUL
-              </td>
 
-              <!-- Gambar -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <a href="#" class="text-blue-600 underline">
-                  TODO: GAMBAR
-                </a>
-              </td>
+            <?php
+            $query = mysqli_query($koneksi, "SELECT * FROM sharing ORDER BY id DESC");
+            if (mysqli_num_rows($query) > 0) {
+              while ($row = mysqli_fetch_array($query)) {
+            ?>
+                <tr style="background-color: #D9D9D9;">
+                  <!-- Judul -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <?= $row['judul_content']; ?>
+                  </td>
 
-              <!-- Deskripsi -->
-              <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-                TODO: DESKRIPSI
-              </td>
+                  <!-- Gambar -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <a href="#" class="text-blue-600 underline">
+                      <?= $row['gambar_content']; ?>
+                    </a>
+                  </td>
 
-              <!-- Action -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <div class="flex flex-col items-center leading-tight">
-                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
-                </div>
-              </td>
-            </tr>
+                  <!-- Deskripsi -->
+                  <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
+                    <?= $row['deskripsi_content']; ?>
+                  </td>
+
+                  <!-- Action -->
+                  <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                    <div class="flex flex-col items-center leading-tight">
+                      <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                      <a href="editsharing_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin hapus?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                    </div>
+                  </td>
+                </tr>
 
 
-            <tr style="background-color: #D9D9D9;">
-              <!-- Judul -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                MATLAB
-              </td>
+            <?php
+              }
+            } else {
+              echo "<tr><td colspan='4' class='text-center py-5'>Belum ada konten sharing.</td></tr>";
+            }
+            ?>
 
-              <!-- Gambar -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <a href="#" class="text-blue-600 underline">
-                  Matlab.jpg
-                </a>
-              </td>
-
-              <!-- Deskripsi -->
-              <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-                MATLAB adalah software komputasi yang digunakan untuk analisis data,
-                perhitungan numerik, dan pemrograman dengan basis matriks. Program ini
-                banyak dimanfaatkan dalam bidang teknik, sains, matematika, dan
-                penelitian karena mampu menyelesaikan data dalam jumlah besar dengan
-                cepat dan akurat. MATLAB menyediakan berbagai toolbox seperti signal
-                processing, control systems, image processing, dan machine learning
-                yang memudahkan pengguna dalam melakukan simulasi, pemodelan sistem,
-                serta visualisasi grafik secara interaktif. Dengan antarmuka yang mudah
-                dipahami dan bahasa pemrograman yang fleksibel, MATLAB menjadi alat
-                yang efektif untuk menyelesaikan perhitungan kompleks dan eksperimen
-                numerik.
-              </td>
-
-              <!-- Action -->
-              <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                <div class="flex flex-col items-center leading-tight">
-                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
-                </div>
-              </td>
-            </tr>
           </tbody>
         </table>
       </div>
