@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Cek Login
 if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
   header("location:login_admin.php");
   exit();
@@ -7,21 +8,24 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
 
 include '../../config/koneksi.php';
 
-// Proses Hapus
+// Proses Hapus Data
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
 
-  // Ambil nama gambar
+  // Ambil nama gambar dulu
   $q = mysqli_query($koneksi, "SELECT gambar_content FROM sharing WHERE id='$id'");
   $data = mysqli_fetch_array($q);
   $gambar = $data['gambar_content'];
 
+  // Hapus data dari DB
   $delete = mysqli_query($koneksi, "DELETE FROM sharing WHERE id='$id'");
+  
   if ($delete) {
+    // Hapus file fisik (Path sesuai struktur project admin)
     if (file_exists("../Assets/$gambar")) {
       unlink("../Assets/$gambar");
     }
-    echo "<script>alert('Konten Sharing Dihapus!'); window.location='editsharing_admin.php';</script>";
+    echo "<script>alert('Konten Sharing Berhasil Dihapus!'); window.location='editsharing_admin.php';</script>";
   }
 }
 ?>
@@ -32,16 +36,13 @@ if (isset($_GET['hapus'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mandha Panel - Edit Sharing</title>
+  <title>Mandha Panel - List Sharing</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
+    body { font-family: 'Poppins', sans-serif; }
   </style>
 </head>
 
@@ -56,7 +57,7 @@ if (isset($_GET['hapus'])) {
     <main class="flex-1 p-16 pl-24">
 
       <!-- JUDUL -->
-      <h1 class="text-4xl font-bold mt-4 mb-10">EDIT SHARING</h1>
+      <h1 class="text-4xl font-bold mt-4 mb-10">LIST SHARING</h1>
 
       <!-- AREA TABLE + BACK BUTTON -->
       <div class="w-[900px]">
@@ -99,25 +100,28 @@ if (isset($_GET['hapus'])) {
 
                   <!-- Gambar -->
                   <td class="py-3 px-4 border border-gray-400 text-center align-top">
-                    <a href="#" class="text-blue-600 underline">
+                    <!-- Link ke gambar jika ingin di-preview (opsional) -->
+                    <span class="text-blue-600">
                       <?= $row['gambar_content']; ?>
-                    </a>
+                    </span>
                   </td>
 
                   <!-- Deskripsi -->
                   <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-                    <?= $row['deskripsi_content']; ?>
+                    <!-- Potong teks jika terlalu panjang -->
+                    <?= substr($row['deskripsi_content'], 0, 150) . '...'; ?>
                   </td>
 
                   <!-- Action -->
                   <td class="py-3 px-4 border border-gray-400 text-center align-top">
                     <div class="flex flex-col items-center leading-tight">
-                      <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                      <a href="editsharing_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin hapus?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                      <!-- PERBAIKAN: Link Edit dengan ID -->
+                      <a href="sharing_admin.php?id=<?= $row['id']; ?>" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                      
+                      <a href="editsharing_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus konten ini?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
                     </div>
                   </td>
                 </tr>
-
 
             <?php
               }
@@ -134,5 +138,4 @@ if (isset($_GET['hapus'])) {
   </div>
 
 </body>
-
 </html>

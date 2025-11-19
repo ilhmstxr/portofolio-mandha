@@ -67,7 +67,7 @@ $inactive_class = "hover:bg-gray-700 hover:text-white transition text-gray-300";
     </div>
 
     <!-- LOGOUT -->
-    <a href="logout.php" class="text-sm opacity-70 cursor-pointer block hover:text-white transition hover:underline mt-10">
+    <a href="<?= $base_admin ?>logout.php" class="text-sm opacity-70 cursor-pointer block hover:text-white transition hover:underline mt-10">
         Logout
     </a>
 </aside>

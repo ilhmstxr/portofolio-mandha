@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Cek Login
 if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
   header("location:login_admin.php");
   exit();
@@ -7,25 +8,27 @@ if (!isset($_SESSION['status']) || $_SESSION['status'] != "login") {
 
 include '../../config/koneksi.php';
 
-// Proses Hapus
+// Proses Hapus Data
 if (isset($_GET['hapus'])) {
   $id = $_GET['hapus'];
 
-  // Ambil nama gambar
+  // Ambil nama gambar dulu
   $q = mysqli_query($koneksi, "SELECT gambar_certificate FROM certificate WHERE id='$id'");
   $data = mysqli_fetch_array($q);
   $gambar = $data['gambar_certificate'];
 
+  // Hapus data dari DB
   $delete = mysqli_query($koneksi, "DELETE FROM certificate WHERE id='$id'");
+  
   if ($delete) {
+    // Hapus file fisik (Path sesuai struktur project admin: ../Assets/)
     if (file_exists("../Assets/$gambar")) {
       unlink("../Assets/$gambar");
     }
-    echo "<script>alert('Sertifikat Dihapus!'); window.location='editcertificates_admin.php';</script>";
+    echo "<script>alert('Sertifikat Berhasil Dihapus!'); window.location='editcertificates_admin.php';</script>";
   }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="id">
@@ -33,16 +36,13 @@ if (isset($_GET['hapus'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mandha Panel - Edit Certificates</title>
+  <title>Mandha Panel - List Certificates</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
+    body { font-family: 'Poppins', sans-serif; }
   </style>
 </head>
 
@@ -56,7 +56,7 @@ if (isset($_GET['hapus'])) {
     <main class="flex-1 p-16 pl-24">
 
       <!-- JUDUL -->
-      <h1 class="text-4xl font-bold mt-4 mb-10">EDIT CERTIFICATES</h1>
+      <h1 class="text-4xl font-bold mt-4 mb-10">LIST CERTIFICATES</h1>
 
       <!-- AREA TABLE + BACK -->
       <div class="w-[900px]">
@@ -110,12 +110,13 @@ if (isset($_GET['hapus'])) {
                   <!-- Action -->
                   <td class="py-3 px-4 border border-gray-400 text-center align-top">
                     <div class="flex flex-col items-center leading-tight">
-                      <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-                      <a href="editcertificates_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin hapus?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                      <!-- PERBAIKAN: Link Edit mengarah ke file form dengan parameter ID -->
+                      <a href="certificates_admin.php?id=<?= $row['id']; ?>" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                      
+                      <a href="editcertificates_admin.php?hapus=<?= $row['id']; ?>" onclick="return confirm('Yakin ingin menghapus sertifikat ini?')" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
                     </div>
                   </td>
                 </tr>
-
 
             <?php
               }
@@ -132,5 +133,4 @@ if (isset($_GET['hapus'])) {
   </div>
 
 </body>
-
 </html>

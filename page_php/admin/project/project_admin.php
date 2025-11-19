@@ -56,9 +56,9 @@ if (isset($_POST['simpan'])) {
   if ($_FILES['gambar']['name'] != "") {
     $nama_file   = $_FILES['gambar']['name'];
     $source      = $_FILES['gambar']['tmp_name'];
-
+    
     // PERBAIKAN PATH: Mundur 3 kali ke folder Assets di root
-    $folder      = '../../../Assets/files/';
+    $folder      = '../../../Assets/'; 
 
     // Hapus gambar lama jika mode edit & file lama ada
     if ($is_edit && $gambar_lama != "" && file_exists($folder . $gambar_lama)) {
@@ -104,36 +104,30 @@ if (isset($_POST['simpan'])) {
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mandha Panel - Project Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-  </style>
 </head>
 
 <body class="bg-white text-gray-900 w-auto min-h-screen mx-auto overflow-x-hidden">
 
   <div class="w-full flex">
 
+    <!-- Panggil Sidebar -->
     <?php include '../sidebar_admin.php'; ?>
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-16">
 
       <h1 class="text-4xl font-bold mb-10 mt-4 tracking-wide">
+        <!-- Judul Halaman Berubah Sesuai Mode -->
         <?= $is_edit ? 'EDIT PROJECT' : 'TAMBAH PROJECT' ?>
       </h1>
 
       <div class="bg-black p-10 rounded-xl w-[900px]">
 
+        <!-- FORM -->
         <form action="" method="POST" enctype="multipart/form-data">
-          <!-- GRID INPUT 2 KOLOM -->
+          
           <div class="grid grid-cols-2 gap-4 mb-4">
             <div class="flex flex-col">
               <label class="text-white mb-1 text-sm">Judul Project</label>
@@ -146,8 +140,9 @@ if (isset($_POST['simpan'])) {
             </div>
 
             <div class="flex flex-col">
-              <label class="text-white mb-1 text-sm">tanggal (hh - bb - tt)</label>
-              <input type="date" name="tanggal" value="<?= $tanggal ?>" class="w-full bg-[#D9D9D9] py-2 px-3 rounded text-sm outline-none" placeholder="hh - bb - tt" />
+              <label class="text-white mb-1 text-sm">Tanggal (hh - bb - tt)</label>
+              <!-- Gunakan type="text" agar fleksibel sesuai format database Anda -->
+              <input type="date" name="tanggal" value="<?= $tanggal ?>" class="w-full bg-[#D9D9D9] py-2 px-3 rounded text-sm outline-none" placeholder="Contoh: 12 - 05 - 2024" />
             </div>
 
             <div class="flex flex-col">
@@ -168,6 +163,7 @@ if (isset($_POST['simpan'])) {
             <div class="flex items-center bg-[#D9D9D9] rounded px-3 py-2">
               <input type="file" name="gambar" class="text-sm" />
             </div>
+            <!-- Tampilkan info gambar lama jika sedang edit -->
             <?php if ($is_edit && $gambar_lama): ?>
               <p class="text-gray-400 text-xs mt-1">File saat ini: <?= $gambar_lama ?></p>
             <?php endif; ?>
@@ -179,18 +175,18 @@ if (isset($_POST['simpan'])) {
             <textarea name="deskripsi" class="w-full h-[150px] bg-[#D9D9D9] py-2 px-3 rounded text-sm outline-none resize-none"><?= $deskripsi ?></textarea>
           </div>
 
-          <!-- TOMBOL TAMBAH PROJECT -->
-          <button type="submit" name="simpan" class="block w-full">
-            <button class="w-full bg-[#4B4949] hover:bg-[#5a5757] transition text-white py-2 rounded-lg text-sm tracking-wide">
+          <!-- TOMBOL SIMPAN -->
+          <button type="submit" name="simpan" class="w-full bg-[#4B4949] hover:bg-[#5a5757] transition text-white py-2 rounded-lg text-sm tracking-wide">
               <?= $is_edit ? 'Simpan Perubahan' : 'Tambah Project' ?>
-            </button>
           </button>
 
-          <!-- TEKS EDIT PROJECT -->
-          <p class="text-center text-xs text-gray-300 mt-3">
-            <a href="editproject_admin.php" class="hover:text-white">List Project</a>
-          </p>
         </form>
+
+        <!-- TEKS EDIT PROJECT -->
+        <p class="text-center text-xs text-gray-300 mt-3">
+          <a href="editproject_admin.php" class="hover:text-white">Kembali ke Daftar Project</a>
+        </p>
+
       </div>
 
     </main>
@@ -198,5 +194,4 @@ if (isset($_POST['simpan'])) {
   </div>
 
 </body>
-
 </html>
