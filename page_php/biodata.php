@@ -62,6 +62,7 @@
           <!-- TEKS + BIODATA KANAN -->
           <div class="max-w-[640px]">
             <h2 class="text-2xl font-bold mb-3 tracking-tight">Halo!</h2>
+            <!-- TODO: DESKRIPSI SINGKAT -->
             <p class="text-[11px] leading-relaxed mb-6 text-gray-100">
               Perkenalkan nama saya Rahmandha Nur Aini. Saya adalah mahasiswa Teknik Industri yang memiliki minat
               dalam pengembangan sistem, peningkatan efisiensi proses, dan analisis data. Saya senang mempelajari
@@ -72,6 +73,7 @@
               proyek dan tantangan yang saya hadapi.
             </p>
 
+            <!-- TODO: BIODATA  -->
             <!-- BIODATA CARD -->
             <div id="biodata" class="bg-[#e3e3e3] text-black rounded-lg px-6 py-4 text-[11px] w-full">
               <div class="flex items-center mb-1.5">
@@ -124,6 +126,7 @@
   <!-- ============================
        MY HOBBIES TITLE
   ============================== -->
+  <!-- TODO: LOOPING HOBBIES -->
   <section class="flex justify-center mt-4 mb-6">
     <div class="bg-black text-white rounded-full px-10 py-2 text-sm font-semibold shadow-md">
       My Hobbies
@@ -204,7 +207,7 @@ hingga saat ini.
 
 </body>
 </html>
-
+    <!-- TODO: LOOPING RIWAYAT PENDIDIKAN -->
       <!-- SECTION RIWAYAT PENDIDIKAN -->
 <section id="pendidikan" class="px-8 lg:px-16 mb-16">
   <div class="text-center mb-6">

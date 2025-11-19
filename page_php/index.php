@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio - Rahmandha Nur Aini</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-900 font-sans">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-black to-[#bca2a2] text-white shadow-md">
+    <div class="max-w-[1728px] mx-auto flex items-center justify-between py-3 px-10">
+      <div class="flex items-center space-x-3">
+        <img class="w-35 h-40 sm:h-12" src="..\Assets\LOGO.png" alt="">
+      </div>
+      <ul class="flex space-x-8 text-sm font-medium">
+        <li><a href="indexcoba3.html" class="hover:text-[#b69b89] transition">Home</a></li>
+        <li><a href="biodata.html" class="hover:text-[#b69b89] transition">Biodata</a></li>
+        <li><a href="biodata.html" class="hover:text-[#b69b89] transition">Pendidikan</a></li>
+        <li><a href="#contact" class="hover:text-[#b69b89] transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section id="home"
+    class="relative w-full h-[550px] flex items-center justify-between text-white bg-cover bg-center px-12 md:px-24"
+    style="background-image: url('../Assets/NEW BG.png'); margin-top:70px;">
+
+    <!-- Overlay -->
+    <div class="bg-black/60 absolute inset-0"></div>
+
+    <!-- Left Text Content -->
+    <div class="relative z-10 max-w-xl text-left">
+      <h1 class="text-4xl font-bold mb-3 drop-shadow-md">Hai! Aku Rahmandha Nur Aini</h1>
+      <p class="text-sm md:text-base leading-relaxed drop-shadow-sm">
+        Mahasiswi Teknik Industri UPN "Veteran Jawa Timur" yang suka mempelajari cara kerja sistem, proses,
+        dan peningkatan efisiensi dalam industri.
+      </p>
+      <!-- Contact Button -->
+      <a href="#contact"
+        class="mt-5 bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-[#b69b89] hover:text-white transition inline-block">
+        Contact Me
+      </a>
+    </div>
+
+    <!-- Right Logo Circle -->
+    <div class="relative z-10">
+      <div
+        class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-white/30 shadow-lg bg-black/40 overflow-hidden flex items-center justify-center">
+        <img src="../Assets/LOGO.png" alt="Logo" class="w-full h-full object-cover rounded-full" />
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT ME TITLE -->
+  <section id="about" class="text-center py-12">
+    <p class="text-gray-700 mb-2 italic text-sm md:text-base">Want to Know More?</p>
+    <h2 class="text-2xl md:text-3xl font-bold bg-black text-white px-8 py-3 inline-block rounded-full">About Me</h2>
+  </section>
+
+  <!-- ABOUT ME SECTION -->
+  <section
+    class="max-w-[1100px] mx-auto flex flex-col md:flex-row items-center bg-gradient-to-r from-black to-[#735555] rounded-2xl p-10 mb-20 text-white shadow-lg">
+
+    <!-- Profile Picture Circle -->
+    <div class="relative w-56 h-56 flex-shrink-0 mb-8 md:mb-0 md:mr-12">
+      <div
+        class="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-md flex items-center justify-center bg-black/30">
+        <img src="../Assets/PHOTO PROFILE.jpg" alt="Profile" class="w-full h-full object-cover rounded-full" />
+      </div>
+    </div>
+
+    <!-- Text Content -->
+     <!-- TODO: DESKRIPSI SINGKAT -->
+    <div class="flex-1 text-center md:text-left">
+      <h3 class="text-2xl font-semibold mb-2">Hello, I’m Rahmandha Nur Aini</h3>
+      <p class="text-sm italic mb-4">INDUSTRIAL ENGINEERING STUDENT - UPN “Veteran Jawa Timur”</p>
+      <p class="text-sm md:text-base leading-relaxed mb-6">
+        Saya adalah mahasiswa Teknik Industri yang memiliki ketertarikan dalam pengembangan sistem, analisis data, dan
+        efisiensi proses.
+        Saya aktif mengeksplorasi bagaimana teknologi dan manajemen dapat diterapkan untuk menyelesaikan masalah
+        operasional serta mendukung pengambilan keputusan di berbagai konteks organisasi.
+        <br><br>
+        Dengan pengalaman dalam proyek akademik dan kegiatan kolaboratif, saya terus mengembangkan kemampuan dalam
+        perencanaan, riset, desain proses, serta kerja tim.
+        Bagi saya, pembelajaran adalah perjalanan berkelanjutan, dan saya berkomitmen untuk selalu berkembang serta
+        memberikan kontribusi terbaik dalam setiap kesempatan.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap justify-center md:justify-start gap-4">
+
+        <a href="indexcoba3.php">
+          <button
+            class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-[#b69b89] hover:text-white transition">
+            My CV
+          </button>
+        </a>
+
+        <a href="biodata.php">
+          <button
+            class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-[#b69b89] hover:text-white transition">
+            My Portfolio
+          </button>
+        </a>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PORTFOLIO SHOWCASE -->
+  <section class="text-center mb-10">
+    <h2 class="text-2xl md:text-3xl font-bold mb-2">PORTFOLIO SHOWCASE</h2>
+    <p class="text-sm italic text-gray-600 mb-10">Explore Projects, Certificates, and Sharing</p>
+
+    <div class="flex flex-wrap justify-center gap-8 px-6 mb-10">
+
+      <!-- Card PROJECTS -->
+      <a href="home_project.php" class="block">
+        <div
+          class="bg-black text-white rounded-xl w-80 h-24 flex items-center justify-between px-6 hover:-translate-y-1 transition cursor-pointer">
+          <div class="text-left">
+            <h3 class="font-semibold text-sm">PROJECTS</h3>
+            <p class="text-xs italic text-gray-400">Project Experience</p>
+          </div>
+          <div class="bg-[#D9D9D9] text-black rounded-full w-8 h-8 flex items-center justify-center overflow-hidden">
+            <img src="../Assets/PANAH.png" alt="arrow" class="w-4 h-4 object-contain" />
+          </div>
+        </div>
+      </a>
+
+      <!-- Card CERTIFICATES -->
+      <a href="home_certificates.php" class="block">
+        <div
+          class="bg-black text-white rounded-xl w-80 h-24 flex items-center justify-between px-6 hover:-translate-y-1 transition cursor-pointer">
+          <div class="text-left">
+            <h3 class="font-semibold text-sm">CERTIFICATES</h3>
+            <p class="text-xs italic text-gray-400">Verified Achievements</p>
+          </div>
+          <div class="bg-[#D9D9D9] text-black rounded-full w-8 h-8 flex items-center justify-center overflow-hidden">
+            <img src="../Assets/PANAH.png" alt="arrow" class="w-4 h-4 object-contain" />
+          </div>
+        </div>
+      </a>
+
+      <!-- Card SHARING -->
+      <a href="home_sharing.php" class="block"> 
+        <div
+          class="bg-black text-white rounded-xl w-80 h-24 flex items-center justify-between px-6 hover:-translate-y-1 transition cursor-pointer">
+          <div class="text-left">
+            <h3 class="font-semibold text-sm">SHARING</h3>
+            <p class="text-xs italic text-gray-400">Knowledge Contributions</p>
+          </div>
+          <div class="bg-[#D9D9D9] text-black rounded-full w-8 h-8 flex items-center justify-center overflow-hidden">
+            <img src="../Assets/PANAH.png" alt="arrow" class="w-4 h-4 object-contain" />
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+  <!-- CONTACT SECTION (GET IN TOUCH + CONNECT WITH ME) -->
+  <section id="contact" class="max-w-[1100px] mx-auto mb-20">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- LEFT: GET IN TOUCH -->
+      <div class="bg-[#0d0d0d] rounded-2xl p-8">
+        <div class="bg-[#1e1e1e] rounded-xl p-8">
+          <h2 class="text-white text-lg font-semibold mb-2">Get In Touch</h2>
+          <p class="text-gray-400 text-sm mb-6">Have something to discuss? Send me a message and let's talk.
+          </p>
+
+          <!-- TODO: FORM GET IN TOUCH -->
+          <form class="space-y-4">
+            <input type="text" placeholder="Your Name"
+              class="w-full px-4 py-3 rounded-lg bg-black text-white text-sm focus:ring-2 focus:ring-gray-600 outline-none">
+
+            <input type="email" placeholder="Your Email"
+              class="w-full px-4 py-3 rounded-lg bg-black text-white text-sm focus:ring-2 focus:ring-gray-600 outline-none">
+
+            <textarea placeholder="Your Message" rows="4"
+              class="w-full px-4 py-3 rounded-lg bg-black text-white text-sm focus:ring-2 focus:ring-gray-600 outline-none"></textarea>
+
+            <button class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-[#b69b89] transition">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONNECT WITH ME -->
+      <div class="bg-[#0d0d0d] rounded-2xl p-8">
+        <div class="bg-[#1e1e1e] rounded-xl p-8">
+          <h2 class="text-white text-lg font-semibold mb-6">Connect With Me</h2>
+
+          <div class="grid grid-cols-1 gap-4">
+            <!-- TODO: LINK KE INSTAGRAM -->
+            <!-- Instagram -->
+            <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
+              <img src="../Assets/INSTAGRAM.png" class="w-6 h-6" alt="">
+              <div>
+                <p class="font-medium">Instagram</p>
+                <p class="text-xs text-gray-400">@rhmndhaa_</p>
+              </div>
+            </div>
+
+            <!-- Gmail -->
+            <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
+              <img src="../Assets/GMAIL.png" class="w-6 h-6" alt="">
+              <div>
+                <p class="font-medium">Gmail</p>
+                <p class="text-xs text-gray-400">rahmandhanuraini2@gmail.com</p>
+              </div>
+            </div>
+
+            <!-- Facebook -->
+            <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
+              <img src="../Assets/FACEBOOK.png" class="w-6 h-6" alt="">
+              <div>
+                <p class="font-medium">Facebook</p>
+                <p class="text-xs text-gray-400">RahmandhaNurAini</p>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
+              <img src="../Assets/CONTACT.png" class="w-6 h-6" alt="">
+              <div>
+                <p class="font-medium">Contact</p>
+                <p class="text-xs text-gray-400">087825467810</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative bg-gradient-to-r from-black to-[#BCA2A2] text-white py-6">
+
+    <!-- Logo kiri -->
+    <div class="absolute left-8 top-1/2 -translate-y-1/2">
+      <img src="../Assets/LOGO.png" alt="Logo" class="w-14 h-auto object-contain">
+    </div>
+
+    <!-- Menu tengah -->
+    <div class="max-w-[1728px] mx-auto flex justify-center">
+      <ul class="flex space-x-8 text-sm">
+        <li><a href="indexcoba3.html" class="hover:text-gray-300">Home</a></li>
+        <li><a href="biodata.html" class="hover:text-gray-300">Biodata</a></li>
+        <li><a href="biodata.html" class="hover:text-gray-300">Pendidikan</a></li>
+        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+        <li><a href="login_admin.html" class="hover:text-gray-300">Admin</a></li>
+      </ul>
+    </div>
+
+  </footer>
+
+  <!-- FontAwesome Icon CDN -->
+  <script src="https://kit.fontawesome.com/a2e0e6d6e0.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
