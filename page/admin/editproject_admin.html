@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mandha Panel - Edit Sharing</title>
+  <title>Mandha Panel - Edit Projects</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +24,7 @@
 
     <div class="flex flex-col items-center mt-4 w-full">
       <!-- LOGO -->
-      <img src="../Assets/LOGO.png" class="h-28 mb-4" />
+      <img src="..\..\Assets/LOGO.png" class="h-28 mb-4" />
 
       <h2 class="text-xl font-semibold mb-6 tracking-wide">Mandha Panel</h2>
 
@@ -33,9 +33,9 @@
 
     <nav class="w-full space-y-3 text-sm">
       <a class="block hover:bg-gray-700 px-4 py-2 rounded transition" href="datadiri_admin.html">Data Diri</a>
-      <a class="block hover:bg-gray-700 px-4 py-2 rounded transition" href="project_admin.html">Projects</a>
+      <a class="block bg-gray-700 px-4 py-2 rounded" href="project_admin.html">Projects</a>
       <a class="block hover:bg-gray-700 px-4 py-2 rounded transition" href="certificates_admin.html">Certificates</a>
-      <a class="block bg-gray-700 px-4 py-2 rounded" href="sharing_admin.html">Sharing</a>
+      <a class="block hover:bg-gray-700 px-4 py-2 rounded transition" href="sharing_admin.html">Sharing</a>
     </nav>
   </div>
 
@@ -50,21 +50,26 @@
   <main class="flex-1 p-16 pl-24">
 
     <!-- JUDUL -->
-    <h1 class="text-4xl font-bold mt-4 mb-10">EDIT SHARING</h1>
+    <h1 class="text-4xl font-bold mt-4 mb-10">EDIT PROJECTS</h1>
 
     <!-- AREA TABLE + BACK BUTTON -->
     <div class="w-[900px]">
 
       <!-- BACK BUTTON DI POJOK KANAN ATAS TABEL -->
       <div class="flex justify-end mb-2">
-        <a href="sharing_admin.html" class="text-sm text-black">Back</a>
+        <a href="project_admin.html" class="text-sm text-black">Back</a>
       </div>
 
       <!-- TABLE -->
       <table class="w-full text-sm border border-gray-500 border-collapse">
+
         <thead>
           <tr class="text-white text-center" style="background-color: #4B4949;">
             <th class="py-3 px-4 border border-gray-500">Judul</th>
+            <th class="py-3 px-4 border border-gray-500">Durasi</th>
+            <th class="py-3 px-4 border border-gray-500">Tanggal</th>
+            <th class="py-3 px-4 border border-gray-500">Pengerjaan</th>
+            <th class="py-3 px-4 border border-gray-500">Link</th>
             <th class="py-3 px-4 border border-gray-500">Gambar</th>
             <th class="py-3 px-4 border border-gray-500">Deskripsi</th>
             <th class="py-3 px-4 border border-gray-500">Action</th>
@@ -73,42 +78,60 @@
 
         <tbody>
           <tr style="background-color: #D9D9D9;">
+
             <!-- Judul -->
             <td class="py-3 px-4 border border-gray-400 text-center align-top">
-              MATLAB
+              Rumah Hemat Energi<br>(Rumah Batu Bata)
+            </td>
+
+            <!-- Durasi -->
+            <td class="py-3 px-4 border border-gray-400 text-center align-top">
+              3 Bulan
+            </td>
+
+            <!-- Tanggal -->
+            <td class="py-3 px-4 border border-gray-400 text-center align-top">
+              05 - 09 - 2023
+            </td>
+
+            <!-- Pengerjaan -->
+            <td class="py-3 px-4 border border-gray-400 text-center align-top">
+              Tim
+            </td>
+
+            <!-- Link -->
+            <td class="py-3 px-4 border border-gray-400 text-center align-top break-words">
+              <a href="https://youtu.be/1cfpvt-o0M0?si=xfZq1vzds61nTb08"
+                 class="text-blue-600 underline"
+                 target="_blank">
+                https://youtu.be/1cfpvt-o0M0?si=xfZq1vzds61nTb08
+              </a>
             </td>
 
             <!-- Gambar -->
             <td class="py-3 px-4 border border-gray-400 text-center align-top">
-              <a href="#" class="text-blue-600 underline">
-                Matlab.jpg
-              </a>
+              project1.jpg
             </td>
 
             <!-- Deskripsi -->
             <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-              MATLAB adalah software komputasi yang digunakan untuk analisis data,
-              perhitungan numerik, dan pemrograman dengan basis matriks. Program ini
-              banyak dimanfaatkan dalam bidang teknik, sains, matematika, dan
-              penelitian karena mampu menyelesaikan data dalam jumlah besar dengan
-              cepat dan akurat. MATLAB menyediakan berbagai toolbox seperti signal
-              processing, control systems, image processing, dan machine learning
-              yang memudahkan pengguna dalam melakukan simulasi, pemodelan sistem,
-              serta visualisasi grafik secara interaktif. Dengan antarmuka yang mudah
-              dipahami dan bahasa pemrograman yang fleksibel, MATLAB menjadi alat
-              yang efektif untuk menyelesaikan perhitungan kompleks dan eksperimen
-              numerik.
+              Rumah hemat energi dari batu bata adalah hunian yang memanfaatkan sifat batu bata dalam menjaga suhu
+              ruangan tetap stabil. Desainnya dibuat dengan ventilasi dan pencahayaan alami yang optimal,
+              sehingga mengurangi penggunaan listrik untuk penerangan dan pendingin ruangan. Rumah ini ramah
+              lingkungan dan efisien dalam jangka panjang.
             </td>
 
             <!-- Action -->
-            <td class="py-3 px-4 border border-gray-400 text-center align-top">
+           <td class="py-3 px-4 border border-gray-400 text-center align-top">
   <div class="flex flex-col items-center leading-tight">
     <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
     <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
   </div>
 </td>
+
           </tr>
         </tbody>
+
       </table>
     </div>
 
@@ -117,3 +140,4 @@
 
 </body>
 </html>
+
