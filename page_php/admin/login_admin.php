@@ -1,5 +1,35 @@
+<?php
+session_start();
+include '../config/koneksi.php'; // Pastikan path ini benar
+
+// Jika sudah login, langsung lempar ke dashboard
+if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
+  header("location:project_admin.php");
+  exit();
+}
+
+// Proses saat tombol Sign In ditekan
+if (isset($_POST['login'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  // Cek ke database
+  $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username='$username' AND password='$password'");
+  $cek = mysqli_num_rows($query);
+
+  if ($cek > 0) {
+    $_SESSION['username'] = $username;
+    $_SESSION['status'] = "login";
+    header("location:project_admin.php");
+  } else {
+    echo "<script>alert('Username atau Password Salah!');</script>";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,50 +38,43 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style> body { font-family: 'Poppins', sans-serif; } </style>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
-<body class="w-[1728px] min-h-[1034px] mx-auto bg-black text-gray-900 overflow-hidden flex items-center justify-center">
 
+<body class="w-full h-screen bg-black text-gray-900 flex items-center justify-center relative">
+
+  <!-- Background Image -->
   <div class="absolute inset-0 w-full h-full -z-10">
-    <img src="../Assets/NEW BG.png" class="w-full h-full object-cover" />
+    <img src="../../Assets/NEW BG.png" class="w-full h-full object-cover opacity-50" />
   </div>
 
-  <!-- NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-black to-[#bca2a2] text-white shadow-md">
-    <div class="max-w-[1728px] mx-auto flex items-center justify-between py-3 px-10">
-      <div class="flex items-center space-x-3">
-        <img class="w-35 h-40 sm:h-12" src="..\Assets\LOGO.png" alt="">
-      </div>
-      <ul class="flex space-x-8 text-sm font-medium">
-        <li><a href="indexcoba3.html" class="hover:text-[#b69b89] transition">Home</a></li>
-        <li><a href="biodata.html" class="hover:text-[#b69b89] transition">Biodata</a></li>
-        <li><a href="biodata.html" class="hover:text-[#b69b89] transition">Pendidikan</a></li>
-        <li><a href="indexcoba3.html" class="hover:text-[#b69b89] transition">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="bg-[#e6e6e6]/90 w-[520px] rounded-2xl shadow-xl p-10 text-center">
+    <h1 class="text-3xl font-semibold text-black mb-8">Login Admin</h1>
 
-  <section class="absolute inset-0 flex items-center justify-center">
-    <div class="bg-[#e6e6e6]/90 w-[520px] rounded-2xl shadow-xl p-10 text-center">
-      <h1 class="text-3xl font-semibold text-black mb-8">Login Admin</h1>
-
+    <!-- Form Login -->
+    <form action="" method="POST">
       <div class="text-left mb-4">
         <label class="text-sm font-medium text-black">Username</label>
-        <input type="text" placeholder="admin" class="w-full mt-1 px-3 py-2 rounded bg-black text-white focus:outline-none" />
+        <input type="text" name="username" class="w-full mt-1 px-3 py-2 rounded bg-black text-white focus:outline-none" required />
       </div>
 
       <div class="text-left mb-6">
         <label class="text-sm font-medium text-black">Password</label>
-        <input type="password" placeholder="********" class="w-full mt-1 px-3 py-2 rounded bg-black text-white focus:outline-none" />
+        <input type="password" name="password" class="w-full mt-1 px-3 py-2 rounded bg-black text-white focus:outline-none" required />
       </div>
 
-      <a href="datadiri_admin.html"
-   class="w-full bg-gray-500 hover:bg-gray-600 text-white py-2 rounded mb-4 transition text-center block">
-   Sign in
-</a>
-      <a href="indexcoba3.html" class="text-sm text-black underline">Back to Home</a>
-    </div>
-  </section>
+      <button type="submit" name="login" class="w-full bg-gray-500 hover:bg-gray-600 text-white py-2 rounded mb-4 transition">
+        Sign in
+      </button>
+    </form>
+
+    <a href="../index.php" class="text-sm text-black underline">Back to Home</a>
+  </div>
 
 </body>
+
 </html>

@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -34,10 +34,9 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `user`
 --
-
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
 (1, 'admin', '123');
 
 -- --------------------------------------------------------
@@ -56,20 +55,20 @@ CREATE TABLE `certificate` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_diri`
+-- Table structure for table `biodata`
 --
 
-CREATE TABLE `data_diri` (
+CREATE TABLE `biodata` (
   `id` int NOT NULL,
   `field` varchar(100) NOT NULL,
   `isi` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `data_diri`
+-- Dumping data for table `biodata`
 --
 
-INSERT INTO `data_diri` (`id`, `field`, `isi`) VALUES
+INSERT INTO `biodata` (`id`, `field`, `isi`) VALUES
 (1, 'Nama', 'Arya Daffa Bintang Sagita'),
 (2, 'Telepon', '081216894365'),
 (3, 'Email', 'daffa050604@gmail.com'),
@@ -118,9 +117,9 @@ CREATE TABLE `sharing` (
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `user`
 --
-ALTER TABLE `admin`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
@@ -131,9 +130,9 @@ ALTER TABLE `certificate`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `data_diri`
+-- Indexes for table `biodata`
 --
-ALTER TABLE `data_diri`
+ALTER TABLE `biodata`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -153,9 +152,9 @@ ALTER TABLE `sharing`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `admin`
+ALTER TABLE `user`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -165,9 +164,9 @@ ALTER TABLE `certificate`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `data_diri`
+-- AUTO_INCREMENT for table `biodata`
 --
-ALTER TABLE `data_diri`
+ALTER TABLE `biodata`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --

@@ -21,21 +21,7 @@
 </head>
 <body class="bg-white text-gray-900">
 
-   <!-- NAVBAR -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-black to-[#bca2a2] text-white shadow-md">
-    <div class="max-w-[1728px] mx-auto flex items-center justify-between py-3 px-10">
-      <div class="flex items-center space-x-3">
-        <img class="w-35 h-40 sm:h-12" src="..\Assets\LOGO.png" alt="">
-      </div>
-      <ul class="flex space-x-8 text-sm font-medium">
-        <li><a href="indexcoba3.html" class="hover:text-[#b69b89] transition">Home</a></li>
-        <li><a href="biodata.html" class="hover:text-[#b69b89] transition">Biodata</a></li>
-        <li><a href="biodata.html" class="hover:text-[#b69b89] transition">Pendidikan</a></li>
-        <li><a href="indexcoba3.html" class="hover:text-[#b69b89] transition">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
+  <?php include 'component/navbar_section.php'; ?>
   <!-- ============================
        MAIN: SECTION HALO
   ============================== -->
@@ -283,25 +269,7 @@ hingga saat ini.
     </div>
   </main>
 
-  <!-- FOOTER (TETAP) -->
-  <footer class="relative bg-gradient-to-r from-black to-[#BCA2A2] text-white py-6">
-    <!-- Logo kiri -->
-    <div class="absolute left-8 top-1/2 -translate-y-1/2">
-      <img src="../Assets/LOGO.png" alt="Logo" class="w-14 h-auto object-contain">
-    </div>
-
-    <!-- Menu tengah -->
-  <div class="max-w-[1728px] mx-auto flex justify-center">
-    <ul class="flex space-x-8 text-sm">
-      <li><a href="indexcoba3.html" class="hover:text-gray-300">Home</a></li>
-      <li><a href="biodata.html" class="hover:text-gray-300">Biodata</a></li>
-      <li><a href="biodata.html" class="hover:text-gray-300">Pendidikan</a></li>
-      <li><a href="indexcoba3.html" class="hover:text-gray-300">Contact</a></li>
-      <li><a href="login_admin.html" class="hover:text-gray-300">Admin</a></li>
-    </ul>
-  </div>
-  
-  </footer>
+  <?php include 'component/footer_section.php'; ?>
 
   <!-- FontAwesome Icon CDN -->
   <script src="https://kit.fontawesome.com/a2e0e6d6e0.js" crossorigin="anonymous"></script>

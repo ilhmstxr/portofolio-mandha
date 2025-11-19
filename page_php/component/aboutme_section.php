@@ -16,7 +16,7 @@
 
     <!-- Text Content -->
     <div class="flex-1 text-center md:text-left">
-        <h3 class="text-2xl font-semibold mb-2">Hello, I’m Rahmandha Nur Aini</h3>
+        <h2 class="text-2xl font-semibold mb-2">Hello, I’m Rahmandha Nur Aini</h2>
         <p class="text-sm italic mb-4">INDUSTRIAL ENGINEERING STUDENT - UPN “Veteran Jawa Timur”</p>
         <p class="text-sm md:text-base leading-relaxed mb-6">
             Saya adalah mahasiswa Teknik Industri yang memiliki ketertarikan dalam pengembangan sistem, analisis data, dan efisiensi proses.
