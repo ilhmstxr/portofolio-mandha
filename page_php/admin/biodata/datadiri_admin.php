@@ -22,8 +22,7 @@
   <!-- TANPA NAVBAR -->
   <div class="w-full flex">
     
-    <?php include 'sidebar_admin.php'; ?>
-
+    <?php include '../sidebar_admin.php'; ?>
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-16 pl-24">
@@ -43,6 +42,15 @@
           </thead>
 
           <tbody>
+
+            <tr style="background-color: #D9D9D9;">
+              <td class="py-3 px-4 border border-gray-400">TODO: KOLOM FIELD</td>
+              <td class="py-3 px-4 border border-gray-400">TODO: KOLOM ISI</td>
+              <td class="py-3 px-4 border border-gray-400 text-sm text-center">
+                <a class="text-blue-600" href="#">Edit</a><br>
+                <a class="text-red-600" href="#">Hapus</a>
+              </td>
+            </tr>
 
             <tr style="background-color: #D9D9D9;">
               <td class="py-3 px-4 border border-gray-400">Nama</td>

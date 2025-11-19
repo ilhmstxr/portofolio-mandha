@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,110 +11,116 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    body { font-family: 'Poppins', sans-serif; }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
   </style>
 </head>
 
 <body class="bg-white text-gray-900 w-auto min-h-screen mx-auto overflow-x-hidden">
 
-<!-- TANPA NAVBAR -->
-<div class="w-full flex">
+  <!-- TANPA NAVBAR -->
+  <div class="w-full flex">
 
-  <!-- SIDEBAR -->
-  <aside class="w-[320px] bg-black text-white min-h-screen p-8 flex flex-col justify-between">
+    <?php include '../sidebar_admin.php'; ?>
 
-    <div class="flex flex-col items-center mt-4 w-full">
-      <!-- LOGO -->
-      <img src="../Assets/LOGO.png" class="h-28 mb-4" />
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 p-16 pl-24">
 
-      <h2 class="text-xl font-semibold mb-6 tracking-wide">Mandha Panel</h2>
+      <!-- JUDUL -->
+      <h1 class="text-4xl font-bold mt-4 mb-10">EDIT SHARING</h1>
 
-      <!-- GARIS PEMBATAS BAWAH LOGO -->
-    <div class="w-full h-[1px] bg-white opacity-40 mb-6"></div>
+      <!-- AREA TABLE + BACK BUTTON -->
+      <div class="w-[900px]">
 
-    <nav class="w-full space-y-3 text-sm">
-      <a class="block hover:bg-gray-700 px-4 py-2 rounded transition" href="datadiri_admin.html">Data Diri</a>
-      <a class="block hover:bg-gray-700 px-4 py-2 rounded transition" href="project_admin.html">Projects</a>
-      <a class="block hover:bg-gray-700 px-4 py-2 rounded transition" href="certificates_admin.html">Certificates</a>
-      <a class="block bg-gray-700 px-4 py-2 rounded" href="sharing_admin.html">Sharing</a>
-    </nav>
-  </div>
+        <!-- BACK BUTTON DI POJOK KANAN ATAS TABEL -->
+        <div class="flex justify-end mb-2">
+          <a href="sharing_admin.html" class="text-sm text-black">Back</a>
+        </div>
 
-<a href="login_admin.html"
-   class="text-sm opacity-70 text-left cursor-pointer mt-0 block">
-  Logout
-</a>
+        <!-- TABLE -->
+        <table class="w-full text-sm border border-gray-500 border-collapse">
+          <thead>
+            <tr class="text-white text-center" style="background-color: #4B4949;">
+              <th class="py-3 px-4 border border-gray-500">Judul</th>
+              <th class="py-3 px-4 border border-gray-500">Gambar</th>
+              <th class="py-3 px-4 border border-gray-500">Deskripsi</th>
+              <th class="py-3 px-4 border border-gray-500">Action</th>
+            </tr>
+          </thead>
 
-  </aside>
+          <tbody>
+            <tr style="background-color: #D9D9D9;">
+              <!-- Judul -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO: JUDUL
+              </td>
 
-  <!-- MAIN CONTENT -->
-  <main class="flex-1 p-16 pl-24">
+              <!-- Gambar -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                <a href="#" class="text-blue-600 underline">
+                  TODO: GAMBAR
+                </a>
+              </td>
 
-    <!-- JUDUL -->
-    <h1 class="text-4xl font-bold mt-4 mb-10">EDIT SHARING</h1>
+              <!-- Deskripsi -->
+              <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
+                TODO: DESKRIPSI
+              </td>
 
-    <!-- AREA TABLE + BACK BUTTON -->
-    <div class="w-[900px]">
+              <!-- Action -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                <div class="flex flex-col items-center leading-tight">
+                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                </div>
+              </td>
+            </tr>
 
-      <!-- BACK BUTTON DI POJOK KANAN ATAS TABEL -->
-      <div class="flex justify-end mb-2">
-        <a href="sharing_admin.html" class="text-sm text-black">Back</a>
+
+            <tr style="background-color: #D9D9D9;">
+              <!-- Judul -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                MATLAB
+              </td>
+
+              <!-- Gambar -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                <a href="#" class="text-blue-600 underline">
+                  Matlab.jpg
+                </a>
+              </td>
+
+              <!-- Deskripsi -->
+              <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
+                MATLAB adalah software komputasi yang digunakan untuk analisis data,
+                perhitungan numerik, dan pemrograman dengan basis matriks. Program ini
+                banyak dimanfaatkan dalam bidang teknik, sains, matematika, dan
+                penelitian karena mampu menyelesaikan data dalam jumlah besar dengan
+                cepat dan akurat. MATLAB menyediakan berbagai toolbox seperti signal
+                processing, control systems, image processing, dan machine learning
+                yang memudahkan pengguna dalam melakukan simulasi, pemodelan sistem,
+                serta visualisasi grafik secara interaktif. Dengan antarmuka yang mudah
+                dipahami dan bahasa pemrograman yang fleksibel, MATLAB menjadi alat
+                yang efektif untuk menyelesaikan perhitungan kompleks dan eksperimen
+                numerik.
+              </td>
+
+              <!-- Action -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                <div class="flex flex-col items-center leading-tight">
+                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <!-- TABLE -->
-      <table class="w-full text-sm border border-gray-500 border-collapse">
-        <thead>
-          <tr class="text-white text-center" style="background-color: #4B4949;">
-            <th class="py-3 px-4 border border-gray-500">Judul</th>
-            <th class="py-3 px-4 border border-gray-500">Gambar</th>
-            <th class="py-3 px-4 border border-gray-500">Deskripsi</th>
-            <th class="py-3 px-4 border border-gray-500">Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr style="background-color: #D9D9D9;">
-            <!-- Judul -->
-            <td class="py-3 px-4 border border-gray-400 text-center align-top">
-              MATLAB
-            </td>
-
-            <!-- Gambar -->
-            <td class="py-3 px-4 border border-gray-400 text-center align-top">
-              <a href="#" class="text-blue-600 underline">
-                Matlab.jpg
-              </a>
-            </td>
-
-            <!-- Deskripsi -->
-            <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
-              MATLAB adalah software komputasi yang digunakan untuk analisis data,
-              perhitungan numerik, dan pemrograman dengan basis matriks. Program ini
-              banyak dimanfaatkan dalam bidang teknik, sains, matematika, dan
-              penelitian karena mampu menyelesaikan data dalam jumlah besar dengan
-              cepat dan akurat. MATLAB menyediakan berbagai toolbox seperti signal
-              processing, control systems, image processing, dan machine learning
-              yang memudahkan pengguna dalam melakukan simulasi, pemodelan sistem,
-              serta visualisasi grafik secara interaktif. Dengan antarmuka yang mudah
-              dipahami dan bahasa pemrograman yang fleksibel, MATLAB menjadi alat
-              yang efektif untuk menyelesaikan perhitungan kompleks dan eksperimen
-              numerik.
-            </td>
-
-            <!-- Action -->
-            <td class="py-3 px-4 border border-gray-400 text-center align-top">
-  <div class="flex flex-col items-center leading-tight">
-    <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
-    <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+    </main>
   </div>
-</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </main>
-</div>
 
 </body>
+
 </html>

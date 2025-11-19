@@ -20,7 +20,7 @@
 
   <div class="w-full flex">
 
-    <?php include 'sidebar_admin.php'; ?>
+    <?php include '../sidebar_admin.php'; ?>
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-16">

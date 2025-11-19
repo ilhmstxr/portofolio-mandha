@@ -21,8 +21,7 @@
 
   <div class="w-full flex">
 
-    <?php include 'sidebar_admin.php'; ?>
-
+    <?php include '../sidebar_admin.php'; ?>
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-16 pl-24">
@@ -51,6 +50,32 @@
           </thead>
 
           <tbody>
+            <tr style="background-color: #D9D9D9;">
+              <!-- Judul -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top text-xs leading-4">
+                TODO: JUDUL_CERTIFICATE
+              </td>
+
+              <!-- Gambar -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO: GAMBAR_CERTIFICATE
+              </td>
+
+              <!-- Tanggal -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO: TANGGAL_CERTIFICATE
+              </td>
+
+              <!-- Action -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                <div class="flex flex-col items-center leading-tight">
+                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                </div>
+              </td>
+            </tr>
+
+
             <tr style="background-color: #D9D9D9;">
               <!-- Judul -->
               <td class="py-3 px-4 border border-gray-400 text-center align-top text-xs leading-4">

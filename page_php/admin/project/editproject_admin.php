@@ -22,7 +22,7 @@
   <!-- TANPA NAVBAR -->
   <div class="w-full flex">
 
-    <?php include 'sidebar_admin.php'; ?>
+    <?php include '../sidebar_admin.php'; ?>
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-16 pl-24">
@@ -55,6 +55,58 @@
           </thead>
 
           <tbody>
+            <tr style="background-color: #D9D9D9;">
+
+              <!-- Judul -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO:judul_project
+              </td>
+
+              <!-- Durasi -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO:durasi_project
+              </td>
+
+              <!-- Tanggal -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO:tanggal_project
+              </td>
+
+              <!-- Pengerjaan -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO:tipe_pengerjaan_project
+              </td>
+
+              <!-- Link -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top break-words">
+                <a href="TODO:"
+                  class="text-blue-600 underline"
+                  target="_blank">
+                  TODO:link_project
+                </a>
+              </td>
+
+              <!-- Gambar -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                TODO:gambar_project
+              </td>
+
+              <!-- Deskripsi -->
+              <td class="py-3 px-4 border border-gray-400 text-justify align-top text-xs leading-4">
+                TODO:deskripsi_project
+              </td>
+
+              <!-- Action -->
+              <td class="py-3 px-4 border border-gray-400 text-center align-top">
+                <div class="flex flex-col items-center leading-tight">
+                  <a href="#" class="text-blue-600 hover:underline text-sm font-medium">Edit</a>
+                  <a href="#" class="text-red-600 hover:underline text-sm mt-1">Hapus</a>
+                </div>
+              </td>
+
+            </tr>
+
+
             <tr style="background-color: #D9D9D9;">
 
               <!-- Judul -->

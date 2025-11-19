@@ -19,7 +19,7 @@
 <body class="bg-white text-gray-900 w-auto min-h-screen mx-auto overflow-x-hidden">
   <div class="w-full flex">
 
-    <?php include 'sidebar_admin.php'; ?>
+    <?php include '../sidebar_admin.php'; ?>
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-16">

@@ -4,7 +4,7 @@ include '../config/koneksi.php'; // Pastikan path ini benar
 
 // Jika sudah login, langsung lempar ke dashboard
 if (isset($_SESSION['status']) && $_SESSION['status'] == "login") {
-  header("location:project_admin.php");
+  header("location:biodata/datadiri_admin.php");
   exit();
 }
 
@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
   if ($cek > 0) {
     $_SESSION['username'] = $username;
     $_SESSION['status'] = "login";
-    header("location:project_admin.php");
+    header("location:biodata/datadiri_admin.php");
   } else {
     echo "<script>alert('Username atau Password Salah!');</script>";
   }
