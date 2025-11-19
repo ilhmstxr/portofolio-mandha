@@ -69,10 +69,10 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id`, `field`, `isi`) VALUES
-(1, 'Nama', 'Arya Daffa Bintang Sagita'),
-(2, 'Telepon', '081216894365'),
-(3, 'Email', 'daffa050604@gmail.com'),
-(4, 'Instagram', '@aryaaadaffaaa');
+(1, 'Nama', 'Rahmandha Nur Aini'),
+(2, 'Telepon', '087825467810'),
+(3, 'Email', 'rahmandhanuraini2@gmail.com'),
+(4, 'Instagram', '@rhmndhaa_');
 
 -- --------------------------------------------------------
 

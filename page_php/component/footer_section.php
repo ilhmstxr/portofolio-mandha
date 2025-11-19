@@ -12,10 +12,10 @@
       <!-- Menu tengah -->
       <div class="max-w-[1728px] mx-auto flex justify-center">
         <ul class="flex space-x-8 text-sm">
-          <li><a href="indexcoba3.php" class="hover:text-gray-300">Home</a></li>
+          <li><a href="index.php" class="hover:text-gray-300">Home</a></li>
           <li><a href="biodata.php" class="hover:text-gray-300">Biodata</a></li>
           <li><a href="biodata.php" class="hover:text-gray-300">Pendidikan</a></li>
-          <li><a href="indexcoba3.php" class="hover:text-gray-300">Contact</a></li>
+          <li><a href="contact.php" class="hover:text-gray-300">Contact</a></li>
           <li><a href="admin/login_admin.php" class="hover:text-gray-300">Admin</a></li>
         </ul>
       </div>

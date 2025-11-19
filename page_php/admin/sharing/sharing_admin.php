@@ -46,7 +46,7 @@ if (isset($_POST['simpan'])) {
     $source    = $_FILES['gambar']['tmp_name'];
     
     // Path sesuai referensi project_admin.php (Mundur 3 folder ke root Assets)
-    $folder    = '../../../Assets/'; 
+    $folder    = '../../../Assets/files/'; 
 
     // Hapus gambar lama jika ada
     if ($is_edit && $gambar_lama != "" && file_exists($folder . $gambar_lama)) {
