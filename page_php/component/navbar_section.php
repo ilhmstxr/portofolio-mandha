@@ -7,8 +7,8 @@
         <ul class="flex space-x-8 text-sm font-medium">
           <li><a href="index.php" class="hover:text-[#b69b89] transition">Home</a></li>
           <li><a href="biodata.php" class="hover:text-[#b69b89] transition">Biodata</a></li>
-          <li><a href="biodata.php" class="hover:text-[#b69b89] transition">Pendidikan</a></li>
-          <li><a href="index.php" class="hover:text-[#b69b89] transition">Contact</a></li>
+          <li><a href="biodata.php#pendidikan" class="hover:text-[#b69b89] transition">Pendidikan</a></li>
+          <li><a href="index.php#contact" class="hover:text-[#b69b89] transition">Contact</a></li>
         </ul>
       </div>
     </nav>

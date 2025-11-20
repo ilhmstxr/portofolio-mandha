@@ -29,7 +29,7 @@ $inactive_class = "hover:bg-gray-700 hover:text-white transition text-gray-300";
 <!-- SIDEBAR -->
 <aside class="w-[320px] bg-black text-white min-h-screen p-8 flex flex-col justify-between overflow-y-auto">
     <div class="flex flex-col items-center mt-4 w-full">
-        <img src="../Assets/LOGO.png" class="h-28 mb-4 object-contain" alt="Logo Mandha" />
+        <img src="../../../Assets/LOGO.png" class="h-28 mb-4 object-contain" alt="Logo Mandha" />
         <h2 class="text-xl font-semibold mb-6 tracking-wide">Mandha Panel</h2>
         <div class="w-full h-[1px] bg-white opacity-40 mb-6"></div>
 

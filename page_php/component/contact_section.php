@@ -1,3 +1,31 @@
+<?php
+// Hubungkan ke database
+// Pastikan path ini benar (sesuai dengan file admin lain yang mundur 1 folder lalu masuk config)
+include 'config/koneksi.php';
+
+// Proses saat tombol diklik
+if (isset($_POST['kirim'])) {
+  // Ambil data dari form
+  $nama    = htmlspecialchars($_POST['nama']);
+  $email   = htmlspecialchars($_POST['email']);
+  $message = htmlspecialchars($_POST['message']);
+
+  // Query Insert ke tabel 'pengunjung'
+  // Kolom ID tidak perlu diisi karena biasanya auto_increment
+  $query = "INSERT INTO pengunjung (nama, email, message) VALUES ('$nama', '$email', '$message')";
+  $result = mysqli_query($koneksi, $query);
+
+  if ($result) {
+    echo "<script>
+                alert('Pesan berhasil terkirim!'); 
+                window.location.href = window.location.href; // Refresh halaman
+              </script>";
+  } else {
+    echo "<script>alert('Gagal mengirim pesan. Silakan coba lagi.');</script>";
+  }
+}
+?>
+
 <!-- TODO: COMPONENT GET IN TOUCH -->
 <!-- CONTACT SECTION (GET IN TOUCH + CONNECT WITH ME) -->
 <section id="contact" class="max-w-[1100px] mx-auto mb-20">
@@ -11,21 +39,30 @@
         <p class="text-gray-400 text-sm mb-6">Have something to discuss? Send me a message and let's talk.
         </p>
 
-        <form class="space-y-4">
-          <input type="text" placeholder="Your Name"
+        <!-- FORM START -->
+        <!-- Tambahkan method="POST" -->
+        <form action="" method="POST" class="space-y-4">
+
+          <!-- Input Nama: Tambah name="nama" -->
+          <input type="text" name="nama" placeholder="Your Name" required
             class="w-full px-4 py-3 rounded-lg bg-black text-white text-sm focus:ring-2 focus:ring-gray-600 outline-none">
 
-          <input type="email" placeholder="Your Email"
+          <!-- Input Email: Tambah name="email" -->
+          <input type="email" name="email" placeholder="Your Email" required
             class="w-full px-4 py-3 rounded-lg bg-black text-white text-sm focus:ring-2 focus:ring-gray-600 outline-none">
 
-          <textarea placeholder="Your Message" rows="4"
+          <!-- Input Message: Tambah name="message" -->
+          <textarea name="message" placeholder="Your Message" rows="4" required
             class="w-full px-4 py-3 rounded-lg bg-black text-white text-sm focus:ring-2 focus:ring-gray-600 outline-none"></textarea>
 
-          <button
+          <!-- Button: Tambah type="submit" dan name="kirim" -->
+          <button type="submit" name="kirim"
             class="w-full bg-black text-white py-3 rounded-lg font-medium hover:bg-[#b69b89] transition">
             Send Message
           </button>
         </form>
+        <!-- FORM END -->
+
       </div>
     </div>
 
@@ -37,8 +74,8 @@
         <div class="grid grid-cols-1 gap-4">
 
           <!-- Instagram -->
-          <a href="https://www.instagram.com/rhmndhaa_/">
-            <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
+          <a href="https://www.instagram.com/rhmndhaa_/" target="_blank">
+            <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4 hover:bg-gray-800 transition">
               <img src="../Assets/INSTAGRAM.png" class="w-6 h-6" alt="">
               <div>
                 <p class="font-medium">Instagram</p>
@@ -48,13 +85,15 @@
           </a>
 
           <!-- Gmail -->
-          <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
-            <img src="../Assets/GMAIL.png" class="w-6 h-6" alt="">
-            <div>
-              <p class="font-medium">Gmail</p>
-              <p class="text-xs text-gray-400">rahmandhanuraini2@gmail.com</p>
+          <a href="mailto:rahmandhanuraini2@gmail.com">
+            <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4 hover:bg-gray-800 transition">
+              <img src="../Assets/GMAIL.png" class="w-6 h-6" alt="">
+              <div>
+                <p class="font-medium">Gmail</p>
+                <p class="text-xs text-gray-400">rahmandhanuraini2@gmail.com</p>
+              </div>
             </div>
-          </div>
+          </a>
 
           <!-- Facebook -->
           <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">

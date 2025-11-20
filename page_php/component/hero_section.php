@@ -15,7 +15,7 @@
           Mahasiswi Teknik Industri UPN "Veteran Jawa Timur" yang suka mempelajari cara kerja sistem, proses,
           dan peningkatan efisiensi dalam industri.
         </p>
-        <a href="indexcoba3.php"
+        <a href="index.php#contact"
           class="mt-5 bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-[#b69b89] hover:text-white transition inline-block">
           Contact Me
         </a>

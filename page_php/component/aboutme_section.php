@@ -29,7 +29,7 @@
         <!-- Buttons -->
         <div class="flex flex-wrap justify-center md:justify-start gap-4">
 
-            <a href="indexcoba3.php">
+            <a href="index.php">
                 <button class="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-[#b69b89] hover:text-white transition">
                     My CV
                 </button>
