@@ -5,4 +5,5 @@
 // 2. Panggil Layout Utama
 // Layout akan otomatis memuat navbar, hero, dll, lalu memasukkan $content di tengahnya.
 include 'component/main_layout.php';
+echo 'tes';
 ?>

@@ -58,7 +58,7 @@ if (isset($_POST['simpan'])) {
     $source      = $_FILES['gambar']['tmp_name'];
     
     // PERBAIKAN PATH: Mundur 3 kali ke folder Assets di root
-    $folder    = '../../../Assets/files/'; 
+    $folder    = '../../Assets/files/'; 
 
     // Hapus gambar lama jika mode edit & file lama ada
     if ($is_edit && $gambar_lama != "" && file_exists($folder . $gambar_lama)) {

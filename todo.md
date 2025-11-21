@@ -122,7 +122,7 @@ Tahap 4: Finishing & Pengecekan
 
 Pastikan semua gambar terkumpul di folder Assets/ (atau uploads/).
 
-Pastikan file PHP yang memanggil gambar memiliki path yang benar (misal: ../Assets/gambar.jpg).
+Pastikan file PHP yang memanggil gambar memiliki path yang benar (misal: Assets/gambar.jpg).
 
 [ ] Perbaikan Link (Routing)
 

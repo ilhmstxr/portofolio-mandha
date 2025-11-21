@@ -49,7 +49,7 @@ if (isset($_POST['login'])) {
 
   <!-- Background Image -->
   <div class="absolute inset-0 w-full h-full -z-10">
-    <img src="../../Assets/NEW BG.png" class="w-full h-full object-cover opacity-50" />
+    <img src="../Assets/NEW BG.png" class="w-full h-full object-cover opacity-50" />
   </div>
 
   <div class="bg-[#e6e6e6]/90 w-[520px] rounded-2xl shadow-xl p-10 text-center">

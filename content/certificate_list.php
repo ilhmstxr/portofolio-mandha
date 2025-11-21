@@ -15,7 +15,7 @@ include 'config/koneksi.php';
                 <!-- Looping Item Sertifikat -->
                 <div class="bg-white border border-black/40 rounded-xl shadow-sm overflow-hidden">
                     <div class="h-48 bg-gray-100">
-                        <img src="../Assets/files/<?= $row['gambar_certificate']; ?>" alt="<?= $row['judul_certificate']; ?>" class="w-full h-full object-cover">
+                        <img src="Assets/files/<?= $row['gambar_certificate']; ?>" alt="<?= $row['judul_certificate']; ?>" class="w-full h-full object-cover">
                     </div>
                 </div>
 

@@ -76,7 +76,7 @@ if (isset($_POST['kirim'])) {
           <!-- Instagram -->
           <a href="https://www.instagram.com/rhmndhaa_/" target="_blank">
             <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4 hover:bg-gray-800 transition">
-              <img src="../Assets/INSTAGRAM.png" class="w-6 h-6" alt="">
+              <img src="Assets/INSTAGRAM.png" class="w-6 h-6" alt="">
               <div>
                 <p class="font-medium">Instagram</p>
                 <p class="text-xs text-gray-400">@rhmndhaa_</p>
@@ -87,7 +87,7 @@ if (isset($_POST['kirim'])) {
           <!-- Gmail -->
           <a href="mailto:rahmandhanuraini2@gmail.com">
             <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4 hover:bg-gray-800 transition">
-              <img src="../Assets/GMAIL.png" class="w-6 h-6" alt="">
+              <img src="Assets/GMAIL.png" class="w-6 h-6" alt="">
               <div>
                 <p class="font-medium">Gmail</p>
                 <p class="text-xs text-gray-400">rahmandhanuraini2@gmail.com</p>
@@ -97,7 +97,7 @@ if (isset($_POST['kirim'])) {
 
           <!-- Facebook -->
           <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
-            <img src="../Assets/FACEBOOK.png" class="w-6 h-6" alt="">
+            <img src="Assets/FACEBOOK.png" class="w-6 h-6" alt="">
             <div>
               <p class="font-medium">Facebook</p>
               <p class="text-xs text-gray-400">RahmandhaNurAini</p>
@@ -106,7 +106,7 @@ if (isset($_POST['kirim'])) {
 
           <!-- Contact -->
           <div class="bg-black text-white rounded-lg px-4 py-3 flex items-center gap-4">
-            <img src="../Assets/CONTACT.png" class="w-6 h-6" alt="">
+            <img src="Assets/CONTACT.png" class="w-6 h-6" alt="">
             <div>
               <p class="font-medium">Contact</p>
               <p class="text-xs text-gray-400">087825467810</p>

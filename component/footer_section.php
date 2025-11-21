@@ -6,7 +6,7 @@
 
       <!-- Logo kiri -->
       <div class="absolute left-8 top-1/2 -translate-y-1/2">
-        <img src="../Assets/LOGO.png" alt="Logo" class="w-14 h-auto object-contain">
+        <img src="Assets/LOGO.png" alt="Logo" class="w-14 h-auto object-contain">
       </div>
 
       <!-- Menu tengah -->

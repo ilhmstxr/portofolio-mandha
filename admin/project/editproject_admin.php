@@ -22,8 +22,8 @@ if (isset($_GET['hapus'])) {
 
   if ($delete) {
     // Hapus file gambar fisik jika ada
-    if (file_exists("../Assets/$gambar")) {
-      unlink("../Assets/$gambar");
+    if (file_exists("Assets/$gambar")) {
+      unlink("Assets/$gambar");
     }
     echo "<script>alert('Project Berhasil Dihapus!'); window.location='editproject_admin.php';</script>";
   }

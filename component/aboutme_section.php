@@ -10,7 +10,7 @@
     <!-- Profile Picture Circle -->
     <div class="relative w-56 h-56 flex-shrink-0 mb-8 md:mb-0 md:mr-12">
         <div class="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-md flex items-center justify-center bg-black/30">
-            <img src="../Assets/PHOTO PROFILE.jpg" alt="Profile" class="w-full h-full object-cover rounded-full" />
+            <img src="Assets/PHOTO PROFILE.jpg" alt="Profile" class="w-full h-full object-cover rounded-full" />
         </div>
     </div>
 

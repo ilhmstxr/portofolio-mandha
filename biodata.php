@@ -37,7 +37,7 @@
             <div class="bg-white rounded-xl shadow-xl p-4">
               <div class="w-[360px] h-[360px] bg-[#f3f3f3] overflow-hidden">
                 <img
-                  src="../Assets/PHOTO PROFILE.jpg"
+                  src="Assets/PHOTO PROFILE.jpg"
                   alt="Rahmandha Nur Aini"
                   class="w-full h-full object-cover"
                 />
@@ -138,7 +138,7 @@
           <h3 class="font-bold mb-3 tracking-wide text-base">BASKET</h3>
 
           <div class="bg-white p-3 rounded-xl shadow-[0_0_0_3px_#ffffff] mb-3">
-            <img src="../Assets/BASKET.jpg"
+            <img src="Assets/BASKET.jpg"
                  alt="Basket"
                  class="w-[150px] h-[180px] object-cover mx-auto" />
           </div>
@@ -154,7 +154,7 @@
           <h3 class="font-bold mb-3 tracking-wide text-base">BERNYANYI</h3>
 
           <div class="bg-white p-3 rounded-xl shadow-[0_0_0_3px_#ffffff] mb-3">
-            <img src="../Assets/NYANYI.jpg"
+            <img src="Assets/NYANYI.jpg"
                  alt="Bernyanyi"
                  class="w-[150px] h-[180px] object-cover mx-auto" />
           </div>
@@ -176,7 +176,7 @@
       <h3 class="text-base font-bold mb-3 tracking-wide">MENARI</h3>
 
       <div class="bg-white p-3 rounded-xl shadow-[0_0_0_3px_#ffffff] mb-4 mx-auto w-fit">
-        <img src="../Assets/SAMAN.jpg"
+        <img src="Assets/SAMAN.jpg"
              alt="Menari Saman"
              class="w-[320px] h-[180px] object-cover mx-auto" />
       </div>
@@ -211,7 +211,7 @@ hingga saat ini.
     <div class="bg-black text-white rounded-2xl px-8 py-4 flex items-center">
       <div class="flex items-center gap-4">
         <div class="bg-white rounded-full p-2 w-14 h-14 flex items-center justify-center">
-          <img src="../Assets/SDIT.png" alt="SDIT Al-Uswah Tuban" class="w-12 h-12 object-contain">
+          <img src="Assets/SDIT.png" alt="SDIT Al-Uswah Tuban" class="w-12 h-12 object-contain">
         </div>
         <div class="leading-tight">
           <h3 class="text-sm font-semibold">SDIT Al-Uswah Tuban</h3>
@@ -225,7 +225,7 @@ hingga saat ini.
     <div class="bg-[#4B3C3C] text-white rounded-2xl px-8 py-4 flex items-center">
       <div class="flex items-center gap-4">
         <div class="bg-white rounded-full p-2 w-14 h-14 flex items-center justify-center">
-          <img src="../Assets/SMP.png" alt="SMP Ar-Rohmah Putri IIBS Malang" class="w-12 h-12 object-contain">
+          <img src="Assets/SMP.png" alt="SMP Ar-Rohmah Putri IIBS Malang" class="w-12 h-12 object-contain">
         </div>
         <div class="leading-tight">
           <h3 class="text-sm font-semibold">SMP Ar-Rohmah Putri IIBS Malang</h3>
@@ -239,7 +239,7 @@ hingga saat ini.
     <div class="bg-black text-white rounded-2xl px-8 py-4 flex items-center">
       <div class="flex items-center gap-4">
         <div class="bg-white rounded-full p-2 w-14 h-14 flex items-center justify-center">
-          <img src="../Assets/SMAMDA.png" alt="SMA Muhammadiyah 2 Sidoarjo" class="w-12 h-12 object-contain">
+          <img src="Assets/SMAMDA.png" alt="SMA Muhammadiyah 2 Sidoarjo" class="w-12 h-12 object-contain">
         </div>
         <div class="leading-tight">
           <h3 class="text-sm font-semibold">SMA Muhammadiyah 2 Sidoarjo</h3>
@@ -253,7 +253,7 @@ hingga saat ini.
     <div class="bg-[#4B3C3C] text-white rounded-2xl px-8 py-4 flex items-center">
       <div class="flex items-center gap-4">
         <div class="bg-white rounded-full p-2 w-14 h-14 flex items-center justify-center">
-          <img src="../Assets/UPN.png" alt="UPN Veteran Jawa Timur" class="w-12 h-12 object-contain">
+          <img src="Assets/UPN.png" alt="UPN Veteran Jawa Timur" class="w-12 h-12 object-contain">
         </div>
         <div class="leading-tight">
           <h3 class="text-sm font-semibold">UPN "Veteran" Jawa Timur</h3>

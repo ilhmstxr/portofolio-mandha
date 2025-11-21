@@ -3,7 +3,7 @@
     <!-- HERO SECTION -->
     <section id="home"
       class="relative w-full h-[550px] flex items-center justify-between text-white bg-cover bg-center px-12 md:px-24"
-      style="background-image: url('../Assets/NEW BG.png'); margin-top:70px;">
+      style="background-image: url('Assets/NEW BG.png'); margin-top:70px;">
 
       <!-- Overlay -->
       <div class="bg-black/60 absolute inset-0"></div>
@@ -24,7 +24,7 @@
       <!-- Right Logo Circle -->
       <div class="relative z-10">
         <div class="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-white/30 shadow-lg bg-black/40 overflow-hidden flex items-center justify-center">
-          <img src="../Assets/LOGO.png"
+          <img src="Assets/LOGO.png"
             alt="Logo"
             class="w-full h-full object-cover rounded-full" />
         </div>

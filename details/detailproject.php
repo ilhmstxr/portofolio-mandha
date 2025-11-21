@@ -45,7 +45,7 @@ if (!$data) {
     <div class="max-w-[1728px] mx-auto flex items-center justify-between py-3 px-10">
       <div class="flex items-center space-x-3">
         <!-- Path Logo disesuaikan agar naik satu folder -->
-        <img class="w-35 h-40 sm:h-12" src="../../Assets/LOGO.png" alt="Logo">
+        <img class="w-35 h-40 sm:h-12" src="../Assets/LOGO.png" alt="Logo">
       </div>
       <ul class="flex space-x-8 text-sm font-medium">
         <li><a href="../indexcoba3.html" class="hover:text-[#b69b89] transition">Home</a></li>
@@ -126,7 +126,7 @@ if (!$data) {
         <section class="flex items-center justify-center">
           <div class="bg-white border border-gray-300 rounded-[24px] shadow-sm w-full max-w-[640px] aspect-[4/3] flex items-center justify-center overflow-hidden px-6 py-4">
             <img
-              src="../../Assets/files/<?= $data['gambar_project']; ?>"
+              src="../Assets/files/<?= $data['gambar_project']; ?>"
               alt="<?= $data['judul_project']; ?>"
               class="w-full h-full object-contain"
             />

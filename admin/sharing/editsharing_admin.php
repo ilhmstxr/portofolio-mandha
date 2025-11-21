@@ -22,8 +22,8 @@ if (isset($_GET['hapus'])) {
 
   if ($delete) {
     // Hapus file fisik (Path sesuai struktur project admin)
-    if (file_exists("../Assets/$gambar")) {
-      unlink("../Assets/$gambar");
+    if (file_exists("Assets/$gambar")) {
+      unlink("Assets/$gambar");
     }
     echo "<script>alert('Konten Sharing Berhasil Dihapus!'); window.location='editsharing_admin.php';</script>";
   }

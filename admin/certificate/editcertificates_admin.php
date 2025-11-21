@@ -21,9 +21,9 @@ if (isset($_GET['hapus'])) {
   $delete = mysqli_query($koneksi, "DELETE FROM certificate WHERE id='$id'");
   
   if ($delete) {
-    // Hapus file fisik (Path sesuai struktur project admin: ../Assets/)
-    if (file_exists("../Assets/$gambar")) {
-      unlink("../Assets/$gambar");
+    // Hapus file fisik (Path sesuai struktur project admin: Assets/)
+    if (file_exists("Assets/$gambar")) {
+      unlink("Assets/$gambar");
     }
     echo "<script>alert('Sertifikat Berhasil Dihapus!'); window.location='editcertificates_admin.php';</script>";
   }
